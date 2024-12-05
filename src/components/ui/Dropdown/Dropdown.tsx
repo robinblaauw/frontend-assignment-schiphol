@@ -1,4 +1,5 @@
 import React from "react";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 type DropdownProps = {
   options: string[];
@@ -12,9 +13,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
   onChange,
 }) => {
   return (
-    <div>
+    <div className="relative max-w-md">
       <select
-        className="w-full text-sm max-w-md p-4 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-afternoon-blue focus:border-afternoon-blue"
+        className="pr-8 w-full text-sm p-4 bg-white rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-afternoon-blue focus:border-afternoon-blue"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       >
@@ -24,6 +25,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           </option>
         ))}
       </select>
+      <ChevronDownIcon className="absolute top-1/2 right-2 w-4 h-4 text-schiphol-blue transform -translate-y-1/2 pointer-events-none" />
     </div>
   );
 };
