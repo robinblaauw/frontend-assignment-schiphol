@@ -15,3 +15,18 @@ export const filterFlights = (
     )
     .slice(0, 5);
 };
+
+export const filterFlightsByKey = (
+  flights: FlightType[],
+  filter: string,
+  key: keyof FlightType
+): FlightType[] => {
+  if (!filter) return flights;
+
+  const lowerCaseFilter = filter.toLowerCase();
+  return flights
+    .filter((flight) => {
+      return flight[key].toLowerCase().includes(lowerCaseFilter);
+    })
+    .slice(0, 5);
+};
