@@ -50,8 +50,8 @@ export const Flights = ({ flights }: Props) => {
         />
       </div>
       <ul className="flex gap-2 flex-col">
-        {filterFlights(flights, filter, sortBy).map((flight, index) => (
-          <Flight key={index} flight={flight} />
+        {filterFlights(flights, filter, sortBy).map((flight) => (
+          <Flight key={flight.flightIdentifier} flight={flight} />
         ))}
       </ul>
     </section>
