@@ -13,6 +13,8 @@ The api is mocked and imported from a provided json file. Through the usage of t
 
 Filtering has more options than was stated in the assignment, the function to only use a single key to filter has also been built and is also in the file but commented out.
 
+A flight will always display only the originalTime unless a flight is delayed, then it will display both times with the originalTime crossed out. I updated 1 of the flights to reflect this in the front-end.
+
 Below is the assignment received assignment
 
 # Assignment
