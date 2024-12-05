@@ -1,3 +1,4 @@
+import { FilterOptions } from "@/constants/flightFilters";
 import { filterFlights } from "../filterFlights";
 import { FlightType } from "@/types/flights";
 
@@ -26,23 +27,39 @@ const mockFlights: FlightType[] = [
 
 describe("filterFlights", () => {
   it("returns the first 5 flights if no filter is provided", () => {
-    const result = filterFlights(mockFlights, "");
+    const result = filterFlights(
+      mockFlights,
+      "",
+      FilterOptions.EARLIEST_TO_LATEST
+    );
     expect(result).toEqual(mockFlights.slice(0, 5));
   });
 
   it("filters flights by a partial match (case insensitive)", () => {
-    const result = filterFlights(mockFlights, "ab");
+    const result = filterFlights(
+      mockFlights,
+      "ab",
+      FilterOptions.EARLIEST_TO_LATEST
+    );
     expect(result).toEqual([mockFlights[0]]);
   });
 
   it("returns up to 5 matching flights", () => {
     const extendedMockFlights = Array(10).fill(mockFlights[0]);
-    const result = filterFlights(extendedMockFlights, "ab");
+    const result = filterFlights(
+      extendedMockFlights,
+      "ab",
+      FilterOptions.EARLIEST_TO_LATEST
+    );
     expect(result.length).toBe(5);
   });
 
   it("returns an empty array when no flights match", () => {
-    const result = filterFlights(mockFlights, "xyz");
+    const result = filterFlights(
+      mockFlights,
+      "xyz",
+      FilterOptions.EARLIEST_TO_LATEST
+    );
     expect(result).toEqual([]);
   });
 });
