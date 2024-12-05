@@ -5,5 +5,5 @@ type WrapperProps = {
 };
 
 export const Wrapper = ({ children }: WrapperProps) => {
-  return <div className="mx-auto max-w-[1280px] lg:w-full p-8">{children}</div>;
+  return <div className="mx-auto max-w-[976px] lg:w-full p-8">{children}</div>;
 };

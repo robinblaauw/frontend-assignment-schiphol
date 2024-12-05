@@ -13,7 +13,7 @@ export const Input = ({ placeholder, value, onChange }: Props) => {
 
   return (
     <input
-      className="w-full max-w-md px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      className="w-full text-sm max-w-md p-4 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-afternoon-blue focus:border-afternoon-blue"
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
