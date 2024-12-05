@@ -13,7 +13,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   return (
     <div>
-      <select value={value} onChange={(e) => onChange(e.target.value)}>
+      <select
+        className="w-full text-sm max-w-md p-4 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-afternoon-blue focus:border-afternoon-blue"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
         {options.map((option) => (
           <option key={option} value={option}>
             {option}

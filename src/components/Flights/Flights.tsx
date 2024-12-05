@@ -16,7 +16,7 @@ const filterOptions = [
   FilterOptions.LATEST_TO_EARLIEST,
 ];
 export const Flights = ({ flights }: Props) => {
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState<string>("");
   const [sortBy, setSortBy] = useState<FilterOptions>(filterOptions[0]);
 
   const handleFlightsSorting = (newSortValue: string) => {
@@ -24,28 +24,36 @@ export const Flights = ({ flights }: Props) => {
   };
 
   return (
-    <section className="flex gap-4 flex-col">
-      {sortBy}
-      <Input
-        placeholder="Filter"
-        value={filter}
-        onChange={(filterValue) => setFilter(filterValue)}
-      />
-      <Dropdown
-        options={filterOptions}
-        value={sortBy}
-        onChange={handleFlightsSorting}
-      />
-
+    <section className="flex flex-col">
+      <div className="flex flex-row justify-between">
+        <Input
+          placeholder="Search for a flight"
+          value={filter}
+          onChange={(filterValue) => setFilter(filterValue)}
+        />
+      </div>
       {/* Filter that only looks at the key that needs to be filtered on */}
       {/* {filterFlightsByKey(flights, filter, "airport", sortBy).map((flight, index) => (
         <Flight key={index} flight={flight} />
       ))} */}
 
       {/* Filter that checks the other keys aswel if there is a match in case the user looks for something like flight number */}
-      {filterFlights(flights, filter, sortBy).map((flight, index) => (
-        <Flight key={index} flight={flight} />
-      ))}
+      <div className="mt-8 mb-4 flex gap-2 flex-col md:flex-row justify-between">
+        <div>
+          <h2 className="font-bold text-2xl">All destinations</h2>
+          <p className="m-0">Destinations ordered by {sortBy.toLowerCase()}</p>
+        </div>
+        <Dropdown
+          options={filterOptions}
+          value={sortBy}
+          onChange={handleFlightsSorting}
+        />
+      </div>
+      <ul className="flex gap-2 flex-col">
+        {filterFlights(flights, filter, sortBy).map((flight, index) => (
+          <Flight key={index} flight={flight} />
+        ))}
+      </ul>
     </section>
   );
 };
