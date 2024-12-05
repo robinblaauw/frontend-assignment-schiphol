@@ -18,6 +18,15 @@ export const Flight = ({ flight }: Props) => {
     url,
   } = flight;
 
+  const checkDelayed = () => {
+    if (originalTime !== expectedTime) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const isDelayed = checkDelayed();
+
   return (
     <li>
       <Link href={url}>
@@ -30,8 +39,10 @@ export const Flight = ({ flight }: Props) => {
           <div className="flex gap-4 justify-between">
             <div className="flex gap-8">
               <div className="flex flex-col">
-                <p>{originalTime}</p>
-                <p>{expectedTime}</p>
+                <p className={`${isDelayed ? "opacity-40 line-through" : ""}`}>
+                  {originalTime}
+                </p>
+                {isDelayed && <p>{expectedTime}</p>}
               </div>
 
               <div className="flex flex-col">

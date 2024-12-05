@@ -1,3 +1,20 @@
+# This assignment was made as a part of a frontend assessment done for schiphol
+
+# Usage
+
+- This project was made using nextjs 15 and pnpm 9.5.0
+- To get started first run pnpm install in the root directory
+- To run the project use pnpm dev
+- To run test use pnpm test
+
+# additional notes
+
+The api is mocked and imported from a provided json file. Through the usage of the api folder -> flights -> route.ts there is an example of how an async function would fetch data
+
+Filtering has more options than was stated in the assignment, the function to only use a single key to filter has also been built and is also in the file but commented out.
+
+Below is the assignment received assignment
+
 # Assignment
 
 Please create a page that contains an input field.
@@ -17,7 +34,7 @@ Please don't spend more than that unless you're having fun and want to show off 
 - Make it look nice. Make use of the provided colors. How you want to implement them is entirely your choice ;)
 - Your application should treat the contents of `flights.json` as the output of an API endpoint.
   It should load this asynchronously using XHR or Fetch API and should not require a page reload when the user changes their input.
-- Make sure the results are sortable. The filtered flight data should be sortable on date and (expected) time. Initial expected sorting is early to late. 
+- Make sure the results are sortable. The filtered flight data should be sortable on date and (expected) time. Initial expected sorting is early to late.
 
 ## Submission:
 
